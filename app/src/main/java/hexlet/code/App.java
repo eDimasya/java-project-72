@@ -8,6 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class App {
+    /**
+     * @return Application.
+     */
     public static Javalin getApp() {
         Javalin app = Javalin.create(config -> {
             config.bundledPlugins.enableDevLogging();
@@ -17,11 +20,17 @@ public class App {
         return app;
     }
 
+    /**
+     * Start application.
+     */
     public static void start() {
         Javalin app = getApp();
         app.start(getPort());
     }
 
+    /**
+     * @return Application port from system env.
+     */
     public static int getPort() {
         String port = System.getenv().getOrDefault("PORT", "7070");
         return Integer.parseInt(port);
