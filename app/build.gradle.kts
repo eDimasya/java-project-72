@@ -40,6 +40,7 @@ dependencies {
     implementation("io.javalin:javalin-rendering:6.1.3")
     implementation("com.h2database:h2:2.2.224")
     implementation("com.zaxxer:HikariCP:5.1.0")
+    implementation("org.postgresql:postgresql:42.6.0")
 }
 
 tasks.test {
