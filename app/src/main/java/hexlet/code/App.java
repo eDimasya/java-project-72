@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import hexlet.code.controller.SessionController;
+import hexlet.code.repository.BaseRepository;
 import hexlet.code.util.NamedRoutes;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinJte;
@@ -16,6 +17,7 @@ public class App {
             config.bundledPlugins.enableDevLogging();
             config.fileRenderer(new JavalinJte());
         });
+        BaseRepository.implementSchema();
         app.get(NamedRoutes.rootPath(), SessionController::root);
         return app;
     }
@@ -25,6 +27,7 @@ public class App {
      */
     public static void start() {
         Javalin app = getApp();
+        BaseRepository.implementSchema();
         app.start(getPort());
     }
 
