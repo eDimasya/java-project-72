@@ -15,9 +15,10 @@ public class BaseRepository {
         HikariConfig config = new HikariConfig();
         String connection = System.getenv().getOrDefault("JDBC_DATABASE_URL", "jdbc:h2:mem:project;DB_CLOSE_DELAY=-1;");
         config.setJdbcUrl(connection);
-        config.setMaximumPoolSize(5);
-        config.setMinimumIdle(2);
-        config.setConnectionTimeout(30000);
+        config.setMaximumPoolSize(5); // Ограничение на 5 соединений
+        config.setMinimumIdle(1);
+        config.setIdleTimeout(30000); // 30 секунд
+        config.setConnectionTimeout(30000); // 30 секунд
         return config;
     }
 
