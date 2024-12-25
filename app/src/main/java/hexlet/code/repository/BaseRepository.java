@@ -33,5 +33,6 @@ public class BaseRepository {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        getDataSource().close();
     }
 }
