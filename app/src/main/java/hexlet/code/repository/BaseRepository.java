@@ -6,15 +6,10 @@ import com.zaxxer.hikari.HikariDataSource;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.stream.Collectors;
 
 public class BaseRepository {
-
-    public static HikariDataSource getDataSource() {
-        return new HikariDataSource(getConfig());
-    }
 
     public static HikariConfig getConfig() {
         HikariConfig config = new HikariConfig();
@@ -23,8 +18,13 @@ public class BaseRepository {
         return config;
     }
 
+    public static HikariDataSource getDataSource() {
+        return new HikariDataSource(getConfig());
+    }
+
     public static void implementSchema() {
         var url = BaseRepository.class.getClassLoader().getResourceAsStream("schema.sql");
+        assert url != null;
         String sql = new BufferedReader(new InputStreamReader(url))
                 .lines().collect(Collectors.joining("\n"));
         try (Connection connection = getDataSource().getConnection();
@@ -34,5 +34,4 @@ public class BaseRepository {
             throw new RuntimeException(e);
         }
     }
-
 }

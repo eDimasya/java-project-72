@@ -40,7 +40,12 @@ dependencies {
     implementation("io.javalin:javalin-rendering:6.1.3")
     implementation("com.h2database:h2:2.2.224")
     implementation("com.zaxxer:HikariCP:5.1.0")
-    implementation("org.postgresql:postgresql:42.6.0")
+    implementation("org.postgresql:postgresql:42.7.2")
+    implementation("com.konghq:unirest-java-bom:4.4.5")
+    implementation("com.konghq:unirest-java-core:4.4.5")
+    implementation("com.konghq:unirest-modules-gson:4.4.5")
+    implementation("com.konghq:unirest-modules-jackson:4.4.5")
+    implementation("org.jsoup:jsoup:1.16.1")
 }
 
 tasks.test {

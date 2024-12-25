@@ -9,11 +9,11 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 public class Url {
-    private Long id;
+    private int id;
     private String name;
-    private Timestamp created_at;
+    private Timestamp createdAt;
     public Url(String name) {
         this.name = name;
-        this.created_at = new Timestamp(new Date().getTime());
+        this.createdAt = new Timestamp(new Date().getTime());
     }
 }
