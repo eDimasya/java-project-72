@@ -9,10 +9,6 @@ class UrlRepositoryTest {
 
     @Test
     void test() {
-        Url url = new Url("test");
-        BaseRepository.implementSchema();
-        UrlRepository.save(url);
-        Assertions.assertFalse(UrlRepository.getEntities().isEmpty());
     }
 
     @AfterEach

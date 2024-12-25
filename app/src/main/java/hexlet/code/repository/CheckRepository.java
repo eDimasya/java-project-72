@@ -32,7 +32,6 @@ public class CheckRepository extends BaseRepository {
             } else {
                 throw new SQLException("DB have not returned an id after saving an entity");
             }
-            getDataSource().close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -55,7 +54,7 @@ public class CheckRepository extends BaseRepository {
                 urlCheck.setCreatedAt(resultSet.getTimestamp("created_at"));
                 return Optional.of(urlCheck);
             }
-            getDataSource().close();
+            connection.close();
             return Optional.empty();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -79,7 +78,7 @@ public class CheckRepository extends BaseRepository {
                 urlCheck.setCreatedAt(resultSet.getTimestamp("created_at"));
                 result.add(urlCheck);
             }
-            getDataSource().close();
+            connection.close();
             return result;
         } catch (SQLException e) {
             throw new RuntimeException(e);
