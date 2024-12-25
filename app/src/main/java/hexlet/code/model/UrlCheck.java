@@ -20,7 +20,7 @@ public class UrlCheck {
     private Timestamp createdAt;
 
     public UrlCheck(int statusCode, String title, String h1, String description, Url url) {
-         new UrlCheck(statusCode, title, h1, description, url.getId());
+        new UrlCheck(statusCode, title, h1, description, url.getId());
     }
 
     public UrlCheck(int statusCode, String title, String h1, String description, int urlId) {

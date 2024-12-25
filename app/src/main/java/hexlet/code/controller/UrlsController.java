@@ -39,8 +39,8 @@ public class UrlsController {
                 throw new IllegalArgumentException();
             }
             URL fullUrl = uri.toURL();
-            Url url = new Url(fullUrl.getProtocol() + "://" + fullUrl.getHost() +
-                    (fullUrl.getPort() != -1 ? ":" + fullUrl.getPort() : ""));
+            Url url = new Url(fullUrl.getProtocol() + "://" + fullUrl.getHost()
+                    + (fullUrl.getPort() != -1 ? ":" + fullUrl.getPort() : ""));
             if (UrlRepository.getEntities().stream().noneMatch(u ->
                     u.getName().equalsIgnoreCase(url.getName()))) {
                 UrlRepository.save(url);

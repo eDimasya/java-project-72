@@ -8,9 +8,8 @@ import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.stream.Collectors;
-
+@SuppressWarnings("checkstyle:MagicNumber")
 public class BaseRepository {
-
     public static HikariConfig getConfig() {
         HikariConfig config = new HikariConfig();
         String connection = System.getenv().getOrDefault("JDBC_DATABASE_URL", "jdbc:h2:mem:project;DB_CLOSE_DELAY=-1;");

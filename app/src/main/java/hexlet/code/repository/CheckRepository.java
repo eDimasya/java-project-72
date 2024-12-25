@@ -12,9 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@SuppressWarnings("checkstyle:MagicNumber")
 public class CheckRepository extends BaseRepository {
     public static void save(UrlCheck urlCheck) {
-        String sql = "INSERT INTO url_checks (status_code, title, h1, description, url_id, created_at) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO url_checks (status_code, title, h1, description, url_id, created_at) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             statement.setInt(1, urlCheck.getStatusCode());

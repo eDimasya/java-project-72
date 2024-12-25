@@ -5,12 +5,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLException;
-
 class UrlRepositoryTest {
 
     @Test
-    void test() throws SQLException {
+    void test() {
         Url url = new Url("test");
         BaseRepository.implementSchema();
         UrlRepository.save(url);
